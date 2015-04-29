@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Lab3 Map/Reduse Test</title>
+
+    <style type="text/css">
+    table.curvedEdges { border:3px solid green; }
+    table.curvedEdges td, table.curvedEdges th { border-bottom:1px dotted black;padding:5px; }
+    </style>
+</head>
+
+<body>
+<form>
+        <p align="right"><a href="http://127.0.0.1:8000">Home</a></p><br>
+
+{#        Table#}
+        <div align="center">
+        <table class="curvedEdges">
+            <tr>
+                <th width="200">Id</th>
+                <th width="200">Name</th>
+                <th width="200">Bill</th>
+                <th width="200">Datetime</th>
+            </tr>
+            {% for i in table %}
+            <tr>
+                <td width="200">{{ i.id }}</td>
+                <td width="200">{{ i.name }}</td>
+                <td width="200">{{ i.bill }}</td>
+                <td width="200">{{ i.datetime }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        </div><br><br>
+
+        <div align="center">
+        <table class="curvedEdges">
+            <tr>
+                <th width="300">Name</th>
+                <th width="300">Number of transactions by this user</th>
+            </tr>
+            {% for i in map_reduce1 %}
+            <tr>
+                <td width="300">{{ i.key }}</td>
+                <td width="300">{{ i.value }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        </div><br><br>
+
+        <div align="center">
+        <table class="curvedEdges">
+            <tr>
+                <th width="300">Date and Time</th>
+                <th width="300">Number of transactions at this time</th>
+            </tr>
+            {% for i in map_reduce2 %}
+            <tr>
+                <td width="300">{{ i.key }}</td>
+                <td width="300">{{ i.value }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        </div><br><br>
+</form>
+</body>
+</html>
